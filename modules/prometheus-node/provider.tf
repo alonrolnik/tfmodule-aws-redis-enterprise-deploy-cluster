@@ -1,14 +1,10 @@
-#### must have tf provider included in the module folder to
+#### must have tf provider included in the module folder to 
 #### utilize with multiple providers (ie different regions)
 
 terraform {
   required_version = ">= 1.5"
-
+  
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
     local = {
       source  = "hashicorp/local"
       version = "~> 2.5"
@@ -16,6 +12,10 @@ terraform {
     null = {
       source  = "hashicorp/null"
       version = "~> 3.2"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.13"
     }
   }
 }
