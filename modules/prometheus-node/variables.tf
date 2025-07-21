@@ -1,11 +1,11 @@
 #### Required Variables
 
 variable "ssh_key_name" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 variable "ssh_key_path" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 variable "vpc_id" {
@@ -33,8 +33,8 @@ variable "aws_eips" {
 #### prometheus Instance Variables
 
 variable "prometheus_instance_type" {
-    description = "instance type to use. Default: t3.micro"
-    default = "t3.micro"
+  description = "instance type to use. Default: t3.micro"
+  default     = "t3.micro"
 }
 
 variable "dns_fqdn" {

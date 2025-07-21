@@ -31,11 +31,17 @@
         regexp: 'nameserver\s+127\.0\.0\.53'
         state: absent
     - name: Adding known good resolver
-      lineinfile: 
+      lineinfile:
         path: /etc/resolv.conf
         regexp: '^nameserver\s+1.1.1.1'
         line: 'nameserver 1.1.1.1'
         state: present
+
+    - name: Enable and start chrony service
+      systemd:
+        name: chrony
+        state: started
+        enabled: yes
 
     - name: create re home dir
       file:

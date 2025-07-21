@@ -1,51 +1,51 @@
 #### Provider variables
 variable "region" {
-    description = "AWS region"
+  description = "AWS region"
 }
 
 variable "aws_creds" {
-    description = "Access key and Secret key for AWS [Access Keys, Secret Key]"
+  description = "Access key and Secret key for AWS [Access Keys, Secret Key]"
 }
 
 #### Important variables
 variable "ssh_key_name" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 variable "ssh_key_path" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 variable "owner" {
-    description = "owner tag name"
+  description = "owner tag name"
 }
 
 #### VPC
 variable "base_name" {
-    description = "base name for resources"
-    default = "redisuser1-tf"
+  description = "base name for resources"
+  default     = "redisuser1-tf"
 }
 
 variable "vpc_cidr" {
-    description = "vpc-cidr"
-    default = "10.0.0.0/16"
+  description = "vpc-cidr"
+  default     = "10.0.0.0/16"
 }
 
 variable "subnet_cidr_blocks" {
-    type = list(any)
-    description = "subnet_cidr_block"
-    default = ["10.0.1.0/24","10.0.2.0/24","10.0.3.0/24"]
+  type        = list(any)
+  description = "subnet_cidr_block"
+  default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 }
 
 variable "subnet_azs" {
-    type = list(any)
-    description = "subnet availability zone"
-    default = [""]
+  type        = list(any)
+  description = "subnet availability zone"
+  default     = [""]
 }
 
 #### DNS
 variable "dns_hosted_zone_id" {
-    description = "DNS hosted zone Id"
+  description = "DNS hosted zone Id"
 }
 
 #### Test Instance Variables
@@ -60,8 +60,8 @@ variable "node-prefix-tester" {
 }
 
 variable "test_instance_type" {
-    description = "instance type to use. Default: t3.micro"
-    default = "t3.micro"
+  description = "instance type to use. Default: t3.micro"
+  default     = "t3.micro"
 }
 
 #### Redis Enterprise Cluster Variables
@@ -97,8 +97,8 @@ variable "node-prefix-re" {
 }
 
 variable "re_instance_type" {
-    description = "re instance type"
-    default     = "t2.xlarge"
+  description = "re instance type"
+  default     = "t2.xlarge"
 }
 
 variable "node-root-size" {
@@ -323,7 +323,7 @@ variable "internal-rules" {
       protocol  = "tcp"
       comment   = "For Grafana Access"
     }
-    
+
   ]
 }
 
@@ -352,15 +352,15 @@ variable "external-rules" {
       protocol  = "udp"
       cidr      = ["0.0.0.0/0"]
     }
-    
+
   ]
 }
 
 ####### Prometheus Node Variables
 
 variable "prometheus_instance_type" {
-    description = "instance type to use. Default: t3.micro"
-    default = "t3.micro"
+  description = "instance type to use. Default: t3.micro"
+  default     = "t3.micro"
 }
 
 
@@ -368,46 +368,46 @@ variable "prometheus_instance_type" {
 #### used in additional modules
 
 variable "vpc_security_group_ids" {
-    type = list
-    description = "."
-    default = []
+  type        = list(any)
+  description = "."
+  default     = []
 }
 
 variable "re_ami" {
-    description = "."
-    default = ""
+  description = "."
+  default     = ""
 }
 
 variable "test-node-eips" {
-    type = list
-    description = "."
-    default = []
+  type        = list(any)
+  description = "."
+  default     = []
 }
 
 
 ####### Create Cluster Variables
 ####### Node and DNS outputs used to Create Cluster
 variable "dns_fqdn" {
-    description = "."
-    default = ""
+  description = "."
+  default     = ""
 }
 
 variable "re-node-internal-ips" {
-    type = list
-    description = "."
-    default = []
+  type        = list(any)
+  description = "."
+  default     = []
 }
 
 variable "re-node-eip-ips" {
-    type = list
-    description = "."
-    default = []
+  type        = list(any)
+  description = "."
+  default     = []
 }
 
 variable "re-data-node-eip-public-dns" {
-    type = list
-    description = "."
-    default = []
+  type        = list(any)
+  description = "."
+  default     = []
 }
 
 ############# Create RE Cluster Variables
@@ -415,12 +415,12 @@ variable "re-data-node-eip-public-dns" {
 #### Cluster Inputs
 #### RE Cluster Username
 variable "re_cluster_username" {
-    description = "redis enterprise cluster username"
-    default     = "admin@admin.com"
+  description = "redis enterprise cluster username"
+  default     = "admin@admin.com"
 }
 
 #### RE Cluster Password
 variable "re_cluster_password" {
-    description = "redis enterprise cluster password"
-    default     = "admin"
+  description = "redis enterprise cluster password"
+  default     = "admin"
 }

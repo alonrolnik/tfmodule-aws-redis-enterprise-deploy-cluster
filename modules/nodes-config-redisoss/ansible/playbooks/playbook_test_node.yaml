@@ -20,12 +20,12 @@
       - libltdl-dev
       - libltdl7
       - libtool
-      - libpcre3-dev
+      - libpcre2-dev  # Updated from libpcre3-dev for Ubuntu 22.04
       - libevent-dev
       - pkg-config
       - zlib1g-dev
       - libssl-dev
-      - ntp
+      - chrony        # Replaced ntp with chrony for Ubuntu 22.04
       - nginx
 
       #- libevent-openssl-2.1-6
@@ -54,6 +54,12 @@
         line: "127.0.0.1 localhost tester"
         state: present
 
+    - name: Enable and start chrony service
+      systemd:
+        name: chrony
+        state: started
+        enabled: yes
+
   tasks:
     - name: Install Packages
       package:
@@ -68,7 +74,7 @@
 
     - name: checkout redis git repo
       git:
-        repo: 'https://github.com/antirez/redis'
+        repo: 'https://github.com/redis/redis'  # Updated to official Redis repository
         dest: /home/redis/redis
 
     - name: redis - Build the default target

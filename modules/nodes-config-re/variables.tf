@@ -1,11 +1,11 @@
 #### Required Variables
 
 variable "ssh_key_name" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 variable "ssh_key_path" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 #### VPC
@@ -19,8 +19,8 @@ variable "vpc_name" {
 
 ############## Redis Enterprise Nodes Variables
 
-#### RE Software download url (MUST BE ubuntu 18.04)
-#### example: re_download_url = "https://s3.amazonaws.com/redis-enterprise-software-downloads/x.x.xx/redislabs-x.x.xx-68-bionic-amd64.tar"
+#### RE Software download url (Compatible with Ubuntu 22.04 LTS)
+#### example: re_download_url = "https://s3.amazonaws.com/redis-enterprise-software-downloads/7.22.0/redislabs-7.22.0-95-jammy-amd64.tar"
 variable "re_download_url" {
   description = "re download url"
   default     = ""

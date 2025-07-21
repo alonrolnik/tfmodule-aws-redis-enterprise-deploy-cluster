@@ -1,7 +1,7 @@
 #### DNS variables
 
 variable "dns_hosted_zone_id" {
-    description = "DNS hosted zone Id"
+  description = "DNS hosted zone Id"
 }
 
 variable "vpc_name" {

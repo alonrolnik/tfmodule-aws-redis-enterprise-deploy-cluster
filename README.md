@@ -5,14 +5,22 @@ Cluster creation options to create either Redis on RAM, Redis on Flash, and or R
 
 Create an optional test node or nodes with Redis and Memtier installed.
 
- Optional: Configure Prometheus and Grafana on the Test node for advanced monitoring at the Redis Enterprise cluster, node, and database levels.
+Optional: Configure Prometheus and Grafana on the Test node for advanced monitoring at the Redis Enterprise cluster, node, and database levels.
+
+## 🚀 Recently Modernized (2024)
+This project has been updated to use modern versions and best practices:
+- **Ubuntu 22.04 LTS** (Jammy Jellyfish) - Latest Redis Enterprise supported version
+- **Redis Enterprise 7.22.0** - Latest stable version with enhanced performance and security
+- **Terraform 1.5+** with proper provider version constraints
+- **Modern package dependencies** - Updated from deprecated packages (ntp → chrony, libpcre3-dev → libpcre2-dev)
+- **Enhanced Ansible playbooks** - Optimized for Ubuntu 22.04 compatibility
 
 * Example of deployment: (user can choose any number of RE nodes and any number of tester nodes to deploy)
 ![Alt text](image/RE-TF-Deploy.jpg?raw=true "Title")
 
 ## Terraform Modules to provision the following:
 * New VPC 
-* Any number of Redis Enterprise nodes and install Redis Enterprise software (ubuntu 20.04)
+* Any number of Redis Enterprise nodes and install Redis Enterprise software (Ubuntu 22.04 LTS)
 * Test node with Redis and Memtier installed
 * Prometheus and Grafana node configured for advanced monitoring
 * DNS (NS and A records for Redis Enterprise nodes)
@@ -20,7 +28,7 @@ Create an optional test node or nodes with Redis and Memtier installed.
     * cluster creation options: redis on ram, redis on flash, and or rack zone awareness
 
 ### !!!! Requirements !!!
-* Redis Enterprise Software (**Ubuntu 20.04**)
+* Redis Enterprise Software (**Ubuntu 22.04 LTS**) - Latest supported version: **7.22.0**
 * R53 DNS_hosted_zone_id *(if you do not have one already, go get a domain name on Route53)*
 * aws access key and secret key
 * an **AWS generated** SSH key for the region you are creating the cluster
@@ -72,7 +80,7 @@ Since creating a Redis Enterprise cluster from scratch takes many components (VP
 There are two important files to understand. `modules.tf` and `terraform.tfvars.example`.
 * `modules.tf` contains the following: 
     - `vpc module` (creates new VPC)
-    - `node module` (creates and provisions ubuntu 20.04 vms with RE software installed)
+    - `node module` (creates and provisions Ubuntu 22.04 LTS vms with RE software installed)
     - `tester-nodes` (creates test nodes with Redis and Memtier installed)
         - *If you do not want to provision tester nodes, comment this module out*
     - `prometheus-node` (configures the test node with prometheus and grafana for advanced monitoring on the Redis Enterprise Cluster)
@@ -155,3 +163,47 @@ Remove the resources that were created.
   terraform destroy
   # Enter a value: yes
 ```
+
+## 📋 Changelog
+
+### Version 2024.1 - Modernization Update
+**Date: 2024**
+
+#### 🔄 Major Updates
+- **Ubuntu Version**: Upgraded from Ubuntu 20.04 to **Ubuntu 22.04 LTS** (Jammy Jellyfish)
+- **Redis Enterprise**: Updated to version **7.22.0** (latest stable release)
+- **Terraform**: Added minimum version requirement (>= 1.5) with proper provider constraints
+
+#### 🛠️ Infrastructure Improvements
+- **Provider Versions**: Standardized all Terraform provider versions
+  - AWS Provider: ~> 5.0 (locked to v5.100.0)
+  - Local Provider: ~> 2.5 (locked to v2.5.3)
+  - Null Provider: ~> 3.2 (locked to v3.2.4)
+  - Time Provider: ~> 0.13 (locked to v0.13.1)
+- **AMI Updates**: Dynamic lookup for latest Ubuntu 22.04 LTS images
+- **Package Dependencies**: Modernized for Ubuntu 22.04 compatibility
+
+#### 📦 Package Updates
+- **Time Synchronization**: Replaced deprecated `ntp` with `chrony`
+- **PCRE Library**: Updated from `libpcre3-dev` to `libpcre2-dev`
+- **Redis Repository**: Updated to official `redis/redis` repository
+
+#### 🔧 Configuration Enhancements
+- **Ansible Playbooks**: Enhanced for Ubuntu 22.04 compatibility
+- **Service Management**: Improved systemd service configuration
+- **Provider Configuration**: Added comprehensive version constraints to all modules
+
+#### ✅ Validation
+- **Terraform Init**: Successfully validates with all provider versions
+- **Terraform Validate**: Configuration passes syntax validation
+- **Code Formatting**: Applied consistent Terraform formatting
+
+#### 🚨 Breaking Changes
+- **Ubuntu Version**: Projects using this module will now deploy Ubuntu 22.04 LTS instead of 20.04
+- **Package Dependencies**: Some package names have changed (automatic via Ansible)
+- **Terraform Version**: Requires Terraform 1.5 or higher
+
+#### 📝 Migration Notes
+- Existing deployments on Ubuntu 20.04 will continue to work
+- New deployments will use Ubuntu 22.04 LTS with Redis Enterprise 7.22.0
+- Review `terraform.tfvars.example` for updated Redis Enterprise download URL format

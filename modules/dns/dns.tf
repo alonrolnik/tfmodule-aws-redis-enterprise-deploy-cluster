@@ -5,7 +5,7 @@
 
 # Get a Hosted Zone from zone id
 data "aws_route53_zone" "selected" {
-  zone_id = var.dns_hosted_zone_id
+  zone_id      = var.dns_hosted_zone_id
   private_zone = true
 }
 
@@ -13,12 +13,12 @@ data "aws_route53_zone" "selected" {
 resource "aws_route53_record" "A_record" {
   count   = var.data-node-count
   zone_id = data.aws_route53_zone.selected.zone_id
-  name    = format("node-%s.%s.${data.aws_route53_zone.selected.name}", count.index+1, var.vpc_name)
+  name    = format("node-%s.%s.${data.aws_route53_zone.selected.name}", count.index + 1, var.vpc_name)
   type    = "A"
   ttl     = "300"
   records = [
-            element(var.re-data-node-eips, count.index)
-            ]
+    element(var.re-data-node-eips, count.index)
+  ]
 }
 
 # create NS record. Requires an existing R53 zone.
