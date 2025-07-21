@@ -5,7 +5,7 @@ deb_packages:
   - tree
   - sysstat
   - iputils-ping
-  - libcap2-bin 
+  - libcap2-bin
   - build-essential
   - autoconf
   - automake
@@ -13,9 +13,9 @@ deb_packages:
   - libltdl-dev
   - libltdl7
   - libtool
-  - libpcre3-dev 
+  - libpcre2-dev  # Updated from libpcre3-dev for Ubuntu 22.04
   - libevent-dev
   - pkg-config
   - zlib1g-dev
   - libssl-dev
-  - ntp
+  - chrony        # Replaced ntp with chrony for Ubuntu 22.04
