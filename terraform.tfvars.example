@@ -67,6 +67,8 @@ test-node-count = 1
 
 #### User Input Required
 #### RE Software download url (Compatible with Ubuntu 22.04 LTS)
+#### Get the latest download URL from: https://redis.io/downloads/
+#### Select "Redis Software" -> "Download for Ubuntu 22.04"
 #### (Example for Redis Enterprise 7.22.0: re_download_url = "https://s3.amazonaws.com/redis-enterprise-software-downloads/7.22.0/redislabs-7.22.0-95-jammy-amd64.tar")
 re_download_url =
 
