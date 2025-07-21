@@ -19,8 +19,8 @@ variable "vpc_name" {
 
 ############## Redis Enterprise Nodes Variables
 
-#### RE Software download url (Compatible with Ubuntu 24.04 LTS)
-#### example: re_download_url = "https://s3.amazonaws.com/redis-enterprise-software-downloads/x.x.xx/redislabs-x.x.xx-xx-noble-amd64.tar"
+#### RE Software download url (Compatible with Ubuntu 22.04 LTS)
+#### example: re_download_url = "https://s3.amazonaws.com/redis-enterprise-software-downloads/7.22.0/redislabs-7.22.0-95-jammy-amd64.tar"
 variable "re_download_url" {
   description = "re download url"
   default     = ""
