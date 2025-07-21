@@ -4,9 +4,9 @@ resource "aws_security_group" "re_sg" {
   name        = format("%s-re-sg", var.vpc_name)
   description = "Redis Enterprise Security Group"
   vpc_id      = var.vpc_id
-  
+
   tags = {
-    Name = format("%s-re-sg", var.vpc_name),
+    Name  = format("%s-re-sg", var.vpc_name),
     Owner = var.owner
   }
 }

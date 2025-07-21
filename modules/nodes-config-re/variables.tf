@@ -1,11 +1,11 @@
 #### Required Variables
 
 variable "ssh_key_name" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 variable "ssh_key_path" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 #### VPC

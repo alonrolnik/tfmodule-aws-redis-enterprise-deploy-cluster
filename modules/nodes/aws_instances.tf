@@ -9,11 +9,11 @@ resource "aws_instance" "instance" {
   subnet_id                   = element(var.vpc_subnets_ids, count.index)
   instance_type               = var.ec2_instance_type
   key_name                    = var.ssh_key_name
-  vpc_security_group_ids      = [ var.security_group_id ]
-  root_block_device             { volume_size = var.node-root-size }
+  vpc_security_group_ids      = [var.security_group_id]
+  root_block_device { volume_size = var.node-root-size }
 
   tags = {
-    Name = format("%s-%s-node-%s", var.vpc_name, var.node-prefix, count.index+1),
+    Name  = format("%s-%s-node-%s", var.vpc_name, var.node-prefix, count.index + 1),
     Owner = var.owner
   }
 

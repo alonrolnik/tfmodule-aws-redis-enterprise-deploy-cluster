@@ -1,24 +1,24 @@
 #### Required Variables
 
 variable "region" {
-    description = "AWS region"
+  description = "AWS region"
 }
 
 variable "ssh_key_name" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 variable "ssh_key_path" {
-    description = "name of ssh key to be added to instance"
+  description = "name of ssh key to be added to instance"
 }
 
 variable "owner" {
-    description = "owner tag name"
+  description = "owner tag name"
 }
 
 #### VPC
 variable "vpc_cidr" {
-    description = "vpc-cidr"
+  description = "vpc-cidr"
 }
 
 variable "vpc_id" {
@@ -35,9 +35,9 @@ variable "vpc_subnets_ids" {
 }
 
 variable "subnet_azs" {
-    type = list(any)
-    description = "subnet availability zone"
-    default = [""]
+  type        = list(any)
+  description = "subnet availability zone"
+  default     = [""]
 }
 
 variable "ena-support" {
@@ -71,15 +71,15 @@ variable "node-count" {
   default     = 1
 }
 
- 
+
 variable "node-prefix" {
   description = "node prefix"
   default     = ""
 }
 
 variable "ec2_instance_type" {
-    description = "re instance type"
-    default     = "t2.xlarge"
+  description = "re instance type"
+  default     = "t2.xlarge"
 }
 
 ##### EBS volume for persistent and ephemeral storage

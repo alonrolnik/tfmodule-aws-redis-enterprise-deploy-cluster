@@ -2,12 +2,12 @@
 
 
 variable "owner" {
-    description = "owner tag name"
+  description = "owner tag name"
 }
 
 #### VPC
 variable "vpc_cidr" {
-    description = "vpc-cidr"
+  description = "vpc-cidr"
 }
 
 
