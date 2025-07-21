@@ -12,7 +12,7 @@ Create an optional test node or nodes with Redis and Memtier installed.
 
 ## Terraform Modules to provision the following:
 * New VPC 
-* Any number of Redis Enterprise nodes and install Redis Enterprise software (ubuntu 20.04)
+* Any number of Redis Enterprise nodes and install Redis Enterprise software (Ubuntu 24.04 LTS)
 * Test node with Redis and Memtier installed
 * Prometheus and Grafana node configured for advanced monitoring
 * DNS (NS and A records for Redis Enterprise nodes)
@@ -20,7 +20,7 @@ Create an optional test node or nodes with Redis and Memtier installed.
     * cluster creation options: redis on ram, redis on flash, and or rack zone awareness
 
 ### !!!! Requirements !!!
-* Redis Enterprise Software (**Ubuntu 20.04**)
+* Redis Enterprise Software (**Ubuntu 24.04 LTS**)
 * R53 DNS_hosted_zone_id *(if you do not have one already, go get a domain name on Route53)*
 * aws access key and secret key
 * an **AWS generated** SSH key for the region you are creating the cluster
@@ -72,7 +72,7 @@ Since creating a Redis Enterprise cluster from scratch takes many components (VP
 There are two important files to understand. `modules.tf` and `terraform.tfvars.example`.
 * `modules.tf` contains the following: 
     - `vpc module` (creates new VPC)
-    - `node module` (creates and provisions ubuntu 20.04 vms with RE software installed)
+    - `node module` (creates and provisions Ubuntu 24.04 LTS vms with RE software installed)
     - `tester-nodes` (creates test nodes with Redis and Memtier installed)
         - *If you do not want to provision tester nodes, comment this module out*
     - `prometheus-node` (configures the test node with prometheus and grafana for advanced monitoring on the Redis Enterprise Cluster)

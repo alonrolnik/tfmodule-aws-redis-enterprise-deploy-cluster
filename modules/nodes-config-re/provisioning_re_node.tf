@@ -1,6 +1,6 @@
-#### Generating Ansible config, inventory, playbook 
+#### Generating Ansible config, inventory, playbook
 #### and configuring RE nodes and installing RE software
-#### (RE nodes need special configuration to work with Ubuntu 18)
+#### (RE nodes configured for Ubuntu 24.04 LTS)
 
 #### TESTING
 # Define a null_resource block for the retry logic
