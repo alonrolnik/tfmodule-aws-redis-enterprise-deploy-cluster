@@ -3,9 +3,9 @@ variable "region" {
   description = "AWS region"
 }
 
-variable "aws_creds" {
-  description = "Access key and Secret key for AWS [Access Keys, Secret Key]"
-}
+# variable "aws_creds" {
+#   description = "Access key and Secret key for AWS [Access Keys, Secret Key]"
+# }
 
 #### Important variables
 variable "ssh_key_name" {

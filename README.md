@@ -93,7 +93,6 @@ There are two important files to understand. `modules.tf` and `terraform.tfvars.
     # either use the variables filled in from `.tfvars` as seen below
     module "vpc" {
     source             = "./modules/vpc"
-    aws_creds          = var.aws_creds
     owner              = var.owner
     region             = var.region
     base_name          = var.base_name
@@ -105,7 +104,6 @@ There are two important files to understand. `modules.tf` and `terraform.tfvars.
     # or enter in your own values:
     module "vpc" {
     source             = "./modules/vpc"
-    aws_creds          = ["accessxxxx","secretxxxxxx"]
     owner              = "redisuser"
     region             = "us-west-2"
     base_name          = "redis-user-tf"

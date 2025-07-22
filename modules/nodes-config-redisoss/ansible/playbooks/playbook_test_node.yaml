@@ -16,6 +16,7 @@
       - build-essential
       - autoconf
       - automake
+      - git
       - libbsd-dev
       - libltdl-dev
       - libltdl7
