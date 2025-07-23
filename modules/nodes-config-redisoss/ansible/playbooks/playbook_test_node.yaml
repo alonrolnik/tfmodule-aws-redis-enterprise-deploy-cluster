@@ -28,6 +28,7 @@
       - libssl-dev
       - chrony        # Replaced ntp with chrony for Ubuntu 22.04
       - nginx
+      - libpcre3-dev
 
       #- libevent-openssl-2.1-6
 
