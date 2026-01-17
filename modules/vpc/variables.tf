@@ -4,9 +4,9 @@ variable "region" {
 }
 
 
-variable "aws_creds" {
-  description = "Access key and Secret key for AWS [Access Keys, Secret Key]"
-}
+# variable "aws_creds" {
+#   description = "Access key and Secret key for AWS [Access Keys, Secret Key]"
+# }
 
 variable "owner" {
   description = "owner tag name"

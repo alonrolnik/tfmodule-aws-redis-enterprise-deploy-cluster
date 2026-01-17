@@ -14,7 +14,6 @@
 #### enter your VPC params in the future modules
 module "vpc" {
   source             = "./modules/vpc"
-  aws_creds          = var.aws_creds
   owner              = var.owner
   region             = var.region
   base_name          = var.base_name
